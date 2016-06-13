@@ -134,6 +134,8 @@ ggally_density <- function(data, mapping, ...){
 #' @param corAlignPercent deprecated. Use parameter \code{alignPercent}
 #' @param corMethod deprecated. Use parameter \code{method}
 #' @param corUse deprecated. Use parameter \code{use}
+#' @param corLabel. Label before correlation coefficient.
+#' @param corSignif. Significant digits fpr correlation coefficient.
 #' @param ... other arguments being supplied to geom_text
 #' @author Barret Schloerke \email{schloerke@@gmail.com}
 #' @importFrom stats complete.cases cor
@@ -158,7 +160,7 @@ ggally_cor <- function(
   mapping,
   alignPercent = 0.6,
   method = "pearson", use = "complete.obs",
-  corAlignPercent = NULL, corMethod = NULL, corUse = NULL,
+  corAlignPercent = NULL, corMethod = NULL, corUse = NULL, corLabel = "Corr:\n", corSignif=2,
   ...
 ){
 
@@ -374,10 +376,10 @@ ggally_cor <- function(
 
     p <- ggally_text(
       label = paste(
-        "Corr:\n",
+        corLabel,
         signif(
           cor_fn(xVal, yVal),
-          3
+          corSignif
         ),
         sep = "", collapse = ""
       ),

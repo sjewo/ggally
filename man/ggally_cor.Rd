@@ -6,7 +6,7 @@
 \usage{
 ggally_cor(data, mapping, alignPercent = 0.6, method = "pearson",
   use = "complete.obs", corAlignPercent = NULL, corMethod = NULL,
-  corUse = NULL, ...)
+  corUse = NULL, corLabel = "Corr:\\n", corSignif = 2, ...)
 }
 \arguments{
 \item{data}{data set using}
@@ -26,6 +26,10 @@ ggally_cor(data, mapping, alignPercent = 0.6, method = "pearson",
 \item{corUse}{deprecated. Use parameter \code{use}}
 
 \item{...}{other arguments being supplied to geom_text}
+
+\item{corLabel.}{Label before correlation coefficient.}
+
+\item{corSignif.}{Significant digits fpr correlation coefficient.}
 }
 \description{
 Estimate correlation from the given data.
